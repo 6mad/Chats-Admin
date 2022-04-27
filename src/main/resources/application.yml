@@ -1,0 +1,58 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://db4free.net:3306/chatxsbb?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+#    username: xsbbsbsb
+#    password: xsbbsbsb144
+
+#    url: jdbc:mysql://localhost:3306/chatxsbb?useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowPublicKeyRetrieval=true
+#    username: root
+#    password: 912688
+    url: jdbc:mysql://43.228.79.111:3306/free49666?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: free49666
+    password: fsfsfs123
+    druid:
+      max-active: 10 # 最大活跃数量 默认8
+      min-idle: 2 # 最小空闲数 默认0
+      initial-size: 5 # 初始连接数
+      max-wait: 2000 # 获取连接最大等待时间 默认 -1
+      validation-query: select 1
+      validation-query-timeout: 5000
+      time-between-eviction-runs-millis: 2000 # 间隔多久进行检测需要关闭的空闲连接
+      min-evictable-idle-time-millis: 600000 # 配置连接在池中最小生存的时间
+      max-wait-thread-count: 20 # 最大等待线程数
+  jackson:
+    default-property-inclusion: non_null
+
+# 是否执行MyBatis xml配置文件的状态检查, 只是检查状态,默认false
+mybatis:
+  check-config-location: true
+  # Mapper对应的xml路径
+  mapper-locations: classpath:mapper/*.xml
+  # 设置别名的路径,可避免写全限定类名
+  type-aliases-package: com.hubin.chats.model
+  # 打印sql语句
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  # mybatis-config.xml文件的位置
+  # config-location: classpath:mybatis/mybatis-config.xml
+
+
+
+server:
+  port: 8080
+  servlet:
+    context-path: /
+    encoding:
+      force: true
+      charset: UTF-8
+  tomcat:
+    accesslog:
+      encoding: UTF-8
+    uri-encoding: UTF-8
+
+logging:
+  file:
+    name: ./log.txt
+  level:
+    org.springframework.web: debug
